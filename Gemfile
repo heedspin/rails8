@@ -30,7 +30,7 @@ gem "solid_cable"
 
 # Need to freeze this until we can update Passenger.
 # Session cookie being stored with funny name: ["session_id
-gem "rack", "~> 2.2"
+gem "rack", "~> 3.1"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
