@@ -1,0 +1,8 @@
+log
+tmp
+.DS_Store
+storage/
+.git
+public/assets
+config/master.key
+storage/emails

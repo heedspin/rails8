@@ -1,0 +1,20 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# == Schema Information
+#
+# Table name: products
+#
+#  id              :integer          not null, primary key
+#  inventory_count :integer
+#  name            :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+tshirt:
+  name: T-Shirt
+  inventory_count: 15
+
+steve:
+  name: Granola
+  inventory_count: 0
+  
