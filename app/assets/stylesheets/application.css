@@ -8,6 +8,7 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   padding: 1rem;
@@ -47,3 +48,5 @@ section.product img {
   flex-basis: 50%;
   max-width: 50%;
 }
+
+@import "claude.css";
