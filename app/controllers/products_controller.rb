@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  # before_action :log_relevant_headers
   before_action :set_product, only: %i[ show edit update destroy ]
   allow_unauthenticated_access only: %i[ index show ]
 
@@ -45,5 +46,28 @@ class ProductsController < ApplicationController
 
     def product_params
       params.expect(product: [ :name, :description, :featured_image, :specification, :inventory_count ])
+    end
+
+    def log_relevant_headers
+      headers_to_check = [
+        "HTTP_ACCEPT",
+        "HTTP_TURBO_FRAME",
+        "HTTP_X_REQUESTED_WITH",
+        "HTTP_TURBO_STREAM",
+        "HTTP_TURBO_PERMANENT",
+        "REQUEST_METHOD",
+        "HTTP_USER_AGENT",
+        "HTTP_REFERER"
+      ]
+
+      Rails.logger.info "🔍 RELEVANT HEADERS:"
+      headers_to_check.each do |header|
+        value = request.headers[header] || request.env[header]
+        Rails.logger.info "  #{header}: #{value}" if value
+      end
+
+      # Also check if Rails detects it as XHR
+      Rails.logger.info "  XHR?: #{request.xhr?}"
+      Rails.logger.info "  Format: #{request.format}"
     end
 end

@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :products do
     resources :subscribers, only: [ :create ]
+    resources :product_comments
   end
   resource :unsubscribe, only: [ :show ]
   root "products#index"

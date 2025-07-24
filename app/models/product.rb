@@ -15,6 +15,7 @@ class Product < ApplicationRecord
   has_one_attached :specification
   validates :name, presence: true
   validates :inventory_count, numericality: { greater_than_or_equal_to: 0 }
+  has_many :product_comments, dependent: :destroy
 
   scope :with_description_containing, ->(text) {
     joins(:rich_text_description)

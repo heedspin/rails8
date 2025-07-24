@@ -20,4 +20,10 @@
       <%= button_to "Delete", @product, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
     <% end %>
   </section>
+
+  <section class="product-comments">
+    <h2>Comments</h2>
+    <%= render "product_comments/list", product_comments: @product.product_comments.order(:created_at) %>
+    <%= link_to 'Add Comment', new_product_product_comment_path(@product) %>
+  </section>
 </section>
